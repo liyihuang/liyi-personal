@@ -32,7 +32,7 @@ rm ~/.gitconfig > /dev/null
 ln -s -f $script_dir/gitconfig ~/.gitconfig
 
 echo "copy the zshrc if it doesn't exsit"
-cp -u $script_dir/zshrc ~/.zshrc
+cp -n $script_dir/zshrc ~/.zshrc
 rm -rf ~/.oh-my-zsh > /dev/null
 echo "download oh my zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
