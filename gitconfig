@@ -1,0 +1,11 @@
+[color]
+    ui = auto
+[core]
+	editor = vim
+    excludesfile = ~/.gitignore
+	filemode = false
+[user]
+	name = Liyi Huang
+	email = liyi.huang@tetrate.io
+[credential "https://github.com"]
+	helper = !gh auth git-credential
