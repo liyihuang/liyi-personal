@@ -1,0 +1,19 @@
+ssh_authorized_keys:
+- github:liyihuang
+k3os:
+  password: abcd1234
+  data_sources:
+  - cdrom
+  modules:
+  - nvme
+  - i915
+  dns_nameservers:
+  - 1.1.1.1
+  ntp_servers:
+  - 0.us.pool.ntp.org
+  - 1.us.pool.ntp.org
+  token: abcd1234
+  k3s_args:
+  - "agent"
+  - "--server" 
+  - "https://192.168.31.200:6443"

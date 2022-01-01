@@ -1,0 +1,21 @@
+ssh_authorized_keys:
+- github:liyihuang
+hostname: k3os1
+k3os:
+  password: abcd1234
+  data_sources:
+  - cdrom
+  modules:
+  - nvme
+  dns_nameservers:
+  - 1.1.1.1
+  ntp_servers:
+  - 0.us.pool.ntp.org
+  - 1.us.pool.ntp.org
+  token: abcd1234
+  k3s_args:
+  - "--cluster-init"
+  - "--disable-network-policy"
+  - "--flannel-backend=none"
+  - "--disable"
+  - servicelb,traefik,local-storage
