@@ -16,4 +16,4 @@ k3os:
   k3s_args:
   - "agent"
   - "--server" 
-  - "https://192.168.31.200:6443"
+  - "https://k8s.liyi:6443"
