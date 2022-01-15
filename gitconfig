@@ -9,3 +9,5 @@
 	email = liyi.huang@tetrate.io
 [credential "https://github.com"]
 	helper = !gh auth git-credential
+[oh-my-zsh]
+	hide-dirty = 1
