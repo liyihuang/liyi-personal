@@ -15,7 +15,6 @@ k3os:
   token: abcd1234
   k3s_args:
   - "--cluster-init"
-  - "--disable-network-policy"
   - "--flannel-backend=none"
   - "--disable"
   - servicelb,traefik,local-storage
