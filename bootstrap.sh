@@ -31,6 +31,12 @@ ln -s -f $script_dir/global_gitignore ~/.gitignore
 rm ~/.gitconfig > /dev/null
 ln -s -f $script_dir/gitconfig ~/.gitconfig
 
+
+echo "installing zsh"
+sudo apt-get update
+sudo apt-get install -y zsh
+sudo chsh -s $(which zsh) "$USER"
+
 echo "copy the zshrc if it doesn't exsit"
 cp -n $script_dir/zshrc ~/.zshrc
 rm -rf ~/.oh-my-zsh > /dev/null

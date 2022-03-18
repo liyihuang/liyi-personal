@@ -7,11 +7,6 @@ export KUBECTL_VERSION="1.21.4-00"
 export TERRAFORM_VERSION="0.14.10"
 
 
-echo "installing zsh"
-sudo apt-get update
-sudo apt-get install -y zsh
-sudo chsh -s $(which zsh) "$USER"
-
 
 echo "Installing Docker..."
 sudo apt-get update
@@ -26,12 +21,9 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 # Restart docker to make sure we get the latest version of the daemon if there is an upgrade
 sudo service docker restart
 # create the docker group
-sudo groupadd docker
+sudo groupadd docker >/dev/null 2>&1 || true
 # Make sure we can actually use docker as the current user
-sudo usermod -aG docker $USER
-#activate the changes to groups
-newgrp docker
-
+sudo usermod -aG docker $USER >/dev/null 2>&1 || true
 
 # Install Kubectl 1.21 as that's latest version that works with TSB
 echo "Installing Kubectl..."
@@ -64,6 +56,7 @@ sudo apt-get install -y azure-cli
 
 echo "Installing Istio CLI"
 curl --silent -L https://istio.io/downloadIstio | TARGET_ARCH="amd64" sh -
+mv ./istio-${ISTIO_VERSION} ${HOME}
 chown -R ${USER} ~/"istio-${ISTIO_VERSION}"
 sudo mv ~/istio-${ISTIO_VERSION}/bin/istioctl /usr/local/bin
 
@@ -110,5 +103,8 @@ echo "installing the tmate"
 sudo apt-get update
 sudo apt-get install -y tmate
 
+echo "installing the fzf"
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 echo "please relogin since the docker needs to re-evaluate "
 exit 1
