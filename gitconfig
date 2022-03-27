@@ -3,7 +3,7 @@
 [core]
 	editor = vim
     excludesfile = ~/.gitignore
-	filemode = false
+	fileMode = false
 [user]
 	name = Liyi Huang
 	email = liyi.huang@tetrate.io
